@@ -8,4 +8,5 @@ RUN apk add --no-cache ca-certificates fuse && rm -rf /tmp/*
 COPY --from=0 /go/bin/gcsfuse /usr/local/bin
 WORKDIR /
 RUN mkdir mount
+RUN chmod 777 mount
 VOLUME mount
