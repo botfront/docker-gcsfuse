@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ "build",  "-t", "botfront/gcsfuse:latest", "."]
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ "login",
+        "-u", "$_DOCKER_USERNAME",
+        "-p", "$_DOCKER_PASSWORD",
+  ]
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ "push", "botfront/gcsfuse:latest"]
